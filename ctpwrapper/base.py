@@ -26,7 +26,7 @@ class Base(ctypes.Structure):
         value = super().__getattribute__(item)
         if isinstance(value, bytes):
             try:
-                value = value.decode("gbk")
+                value = value.decode("gbk").strip()
                 if value == "\0":
                     value = ""
             except UnicodeDecodeError:
